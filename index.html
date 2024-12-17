@@ -126,16 +126,15 @@
     <div class="tarjeta">
         <h1 id="titulo">¡Felices Fiestas!</h1>
         <img src="./imagenes/globo.gif" alt="Globo Navideño">
-        <p id="mensaje">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, cum! Earum repellendus quasi quis
-            eum.</p>
-        <p id="para">Para: mis subs</p>
-        <p id="de">De: esbendev</p>
+        <p id="mensaje"></p>
+        <p id="para">Para:</p>
+        <p id="de">De:</p>
     </div>
     <div class="firma">
 
         <div class="botones">
             <a class="linkBoton" id="botonCompartir">Compatir</a>
-            <a class="linkBoton" id="botonCrear">Crear</a>
+            <a class="linkBoton" href="crear.html" id="botonCrear">Crear</a>
 
             <script>
                 document.getElementById('botonCompartir').addEventListener('click', function () {
@@ -156,9 +155,9 @@
             const params = new URLSearchParams(window.location.search);
             return {
                 titulo: params.get('titulo') || '¡Felices Fiestas!',
-                mensaje: params.get('mensaje') || '¡Te han enviado una tarjeta! Entra a verla.',
-                para: params.get('para') || 'mis subs',
-                de: params.get('de') || 'esbendev'
+                mensaje: params.get('mensaje') || 'Haz click en el botón "crear" para hacer tu propia tarjeta.',
+                para: params.get('para') || '',
+                de: params.get('de') || '@esbendev'
             };
         }
 
