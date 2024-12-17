@@ -79,24 +79,31 @@
         div.firma a, div.firma p{
             color: #fff;
         }
+
+        div.filaFormulario {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 
 <body>
     <form action="index.html" method="get">
         <img src="./imagenes/globo.gif" alt="Globo Navideño">
-        <div>
+        <div class="filaFormulario">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" placeholder="Escribe el título aquí">
         </div>
 
         <label for="mensaje">Mensaje:</label>
         <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
-        <div>
+        <div class="filaFormulario">
             <label for="para">Para:</label>
             <input type="text" id="para" name="para" placeholder="Escribe el destinatario aquí">
         </div>
-        <div>
+        <div class="filaFormulario">
             <label for="de">De:</label>
             <input type="text" id="de" name="de" placeholder="Escribe tu nombre aquí">
         </div>
