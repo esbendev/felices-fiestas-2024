@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felices Fiestas</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playwrite+NL&display=swap"
@@ -26,6 +27,10 @@
             font-family: 'league spartan', sans-serif;
         }
 
+        body{
+            background-color: #4c8b56;
+        }
+
         textarea {
             font-family: 'playwrite nl', sans-serif;
         }
@@ -37,6 +42,14 @@
         textarea {
             font-size: 1.2rem;
             color: #333;
+            padding: .5rem;
+            margin: .1rem;
+        }
+
+        input {
+            border-radius: 0.5rem;
+            border-style: solid;
+            border-color: black;
         }
 
         textarea {
@@ -44,6 +57,9 @@
             height: 10rem;
             margin-bottom: 1rem;
             font-size: 1rem;
+            border-radius: 0.5rem;
+            border-width: 0.13rem;
+            border-color: black;
         }
 
         textarea::placeholder {
@@ -62,29 +78,47 @@
             justify-content: center;
             align-items: center;
             padding: 1rem;
-            max-width: 800px;
+            max-width: 500px;
             margin: 0 auto 200px auto;
+            margin-top: 40px;
+            background-color: white;
+            border-radius: .5rem;
+            box-shadow:  5px 3px 5px #333333ab;
         }
 
         div.firma {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #333;
+            background-color: #00825b;
             color: #fff;
             text-align: center;
             padding: 1rem;
         }
 
-        div.firma a, div.firma p{
+        div.firma a,
+        div.firma p {
             color: #fff;
         }
 
-        div.filaFormulario {
+        .filaFormulario {
             width: 100%;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: start;
             justify-content: center;
+            margin-top: .1rem;
+        }
+
+        .botonEnviar {
+            padding: .8rem 2rem;
+            margin: .5rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ca244c;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            border: none;
         }
     </style>
 </head>
@@ -92,22 +126,20 @@
 <body>
     <form action="index.html" method="get">
         <img src="./imagenes/globo.gif" alt="Globo Navideño">
-        <div class="filaFormulario">
-            <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Escribe el título aquí">
+        <div>
+            <div class="filaFormulario">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Escribe el título aquí">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+                <label for="para">Para:</label>
+                <input type="text" id="para" name="para" placeholder="Escribe el destinatario aquí">
+                <label for="de">De:</label>
+                <input type="text" id="de" name="de" placeholder="Escribe tu nombre aquí">
+            </div>
         </div>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
-        <div class="filaFormulario">
-            <label for="para">Para:</label>
-            <input type="text" id="para" name="para" placeholder="Escribe el destinatario aquí">
-        </div>
-        <div class="filaFormulario">
-            <label for="de">De:</label>
-            <input type="text" id="de" name="de" placeholder="Escribe tu nombre aquí">
-        </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" class="botonEnviar">Enviar</button>
     </form>
     <div class="firma">
         <p>hecho por <a href="esbendev.com">@esbendev</a></p>
