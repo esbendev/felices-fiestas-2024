@@ -118,7 +118,8 @@
         div.firma p,
         div.firma p>a {
             font-size: 1rem;
-            color: #333;
+            color: white;
+            text-decoration: none;
         }
 
         a.linkBoton {
@@ -180,7 +181,6 @@
             document.getElementById('de').innerHTML = '<strong>De:</strong> ' + de;
 
             if (titulo == "" || mensaje == "" || para == "" || de == "") {
-                console.log("hola")
                 document.getElementById('botonCompartir').style.display = 'none'
                 document.getElementById('botonCrear').style.paddingInline = '3rem'
             }
