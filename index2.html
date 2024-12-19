@@ -25,6 +25,7 @@
     <meta name="language" content="Spanish">
 
     <title>¡Felices Fiestas!</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playwrite+NL&display=swap"
@@ -40,6 +41,10 @@
         /* fonts */
         h1 {
             font-family: 'league spartan', sans-serif;
+        }
+
+        body{
+            background-color: #4c8b56;
         }
 
         p#mensaje {
@@ -60,6 +65,10 @@
             padding: 1rem;
             max-width: 800px;
             margin: 0 auto 200px auto;
+            margin-top: 40px;
+            background-color: white;
+            border-radius: .5rem;
+            box-shadow:  5px 3px 5px #333333ab;
         }
 
         img {
@@ -92,7 +101,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: #bbbbbb;
+            background-color: #00825b;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -106,9 +115,11 @@
             align-items: center;
         }
 
-        div.firma p, div.firma p>a {
+        div.firma p,
+        div.firma p>a {
             font-size: 1rem;
-            color: #333;
+            color: white;
+            text-decoration: none;
         }
 
         a.linkBoton {
@@ -116,8 +127,9 @@
             margin: .5rem;
             font-size: 1rem;
             color: #fff;
-            background-color: #333;
+            background-color: #ca244c;
             border-radius: 0.5rem;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -134,7 +146,7 @@
 
         <div class="botones">
             <a class="linkBoton" href="#" id="botonCompartir">Compatir</a>
-            <a class="linkBoton" href="crear.html" id="botonCrear">Crear</a>
+            <a class="linkBoton" href="crear2.html" id="botonCrear">Crear</a>
 
             <script>
                 document.getElementById('botonCompartir').addEventListener('click', function () {
@@ -167,6 +179,11 @@
             document.getElementById('mensaje').textContent = mensaje;
             document.getElementById('para').innerHTML = '<strong>Para:</strong> ' + para;
             document.getElementById('de').innerHTML = '<strong>De:</strong> ' + de;
+
+            if (titulo == "" || mensaje == "" || para == "" || de == "") {
+                document.getElementById('botonCompartir').style.display = 'none'
+                document.getElementById('botonCrear').style.paddingInline = '3rem'
+            }
         });
     </script>
 </body>
