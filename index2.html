@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="¡Felices Fiestas!">
+    <meta property="og:description" content="¡Te han enviado una tarjeta! Entra a verla.">
+    <meta property="og:image" content="https://esbendev.com/felices-fiestas/imagenes/globo.gif">
+    <meta property="og:url" content="https://esbendev.com/felices-fiestas">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="¡Felices Fiestas!">
+    <meta name="twitter:description" content="¡Te han enviado una tarjeta! Entra a verla.">
+    <meta name="twitter:image" content="https://esbendev.com/felices-fiestas/imagenes/globo.gif">
+    <meta name="twitter:url" content="https://esbendev.com/felices-fiestas">
+    <meta name="twitter:site" content="@esbendev">
+    <meta name="twitter:creator" content="@esbendev">
+    <meta name="twitter:domain" content="esbendev.com">
+
+    <meta name="description" content="¡Te han enviado una tarjeta! Entra a verla.">
+    <meta name="author" content="esbendev">
+    <meta name="keywords" content="felices fiestas, navidad, año nuevo, tarjeta, esbendev">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="1 month">
+    <meta name="language" content="Spanish">
+
+    <title>¡Felices Fiestas!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Playwrite+NL&display=swap"
+        rel="stylesheet">
+    <style>
+        /* general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* fonts */
+        h1 {
+            font-family: 'league spartan', sans-serif;
+        }
+
+        p#mensaje {
+            font-family: 'playwrite nl', sans-serif;
+        }
+
+        p#para,
+        p#de {
+            font-family: 'league spartan', sans-serif;
+        }
+
+        /* tarjeta */
+        div.tarjeta {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem;
+            max-width: 800px;
+            margin: 0 auto 200px auto;
+        }
+
+        img {
+            max-width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        p#mensaje {
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        p#para,
+        p#de {
+            align-self: flex-end;
+        }
+
+        div.firma {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #bbbbbb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        div.botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.firma p, div.firma p>a {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        a.linkBoton {
+            padding: .8rem 1rem;
+            margin: .5rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #333;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tarjeta">
+        <h1 id="titulo">¡Felices Fiestas!</h1>
+        <img src="./imagenes/globo.gif" alt="Globo Navideño">
+        <p id="mensaje"></p>
+        <p id="para">Para:</p>
+        <p id="de">De:</p>
+    </div>
+    <div class="firma">
+
+        <div class="botones">
+            <a class="linkBoton" href="#" id="botonCompartir">Compatir</a>
+            <a class="linkBoton" href="crear.html" id="botonCrear">Crear</a>
+
+            <script>
+                document.getElementById('botonCompartir').addEventListener('click', function () {
+                    const url = window.location.href;
+                    navigator.clipboard.writeText(url).then(function () {
+                        alert('Se copió el link, ahora puedes pegarlo donde quieras para compartirlo.');
+                    }, function (err) {
+                        console.error('Error: ', err);
+                    });
+                });
+            </script>
+        </div>
+        <p><a href="https://youtu.be/Vgvkx3FcPb8">¿Cómo se hizo esta tarjeta?</a></p>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                titulo: params.get('titulo') || '¡Felices Fiestas!',
+                mensaje: params.get('mensaje') || 'Haz click en el botón "crear" para hacer tu propia tarjeta.',
+                para: params.get('para') || '',
+                de: params.get('de') || '@esbendev'
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const { titulo, mensaje, para, de } = getQueryParams();
+            document.getElementById('titulo').textContent = titulo;
+            document.getElementById('mensaje').textContent = mensaje;
+            document.getElementById('para').innerHTML = '<strong>Para:</strong> ' + para;
+            document.getElementById('de').innerHTML = '<strong>De:</strong> ' + de;
+        });
+    </script>
+</body>
+
+</html>
